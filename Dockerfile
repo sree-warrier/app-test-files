@@ -1,7 +1,5 @@
-FROM tomcat:8.0-alpine
-
-COPY companyNews.war /usr/local/tomcat/webapps/
-
-EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
+FROM java:8-jdk-alpine
+COPY HelloWorld.jar /usr/app/build/libs/
+WORKDIR /usr/app
+EXPOSE 9000
+ENTRYPOINT ["java", "-jar", "build/libs/HelloWorld.jar"]
